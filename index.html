@@ -22,11 +22,11 @@
     <h4>About</h4>
     <p>Used to demonstrate how DoW (not the final name) works. Enter any URL into the textbox and see the Status, Response Code, What the Code Means and a Possible Fix (if any).</p>
     <h4>Testing</h4>
-    <p>To test error codes, you can do this: <code>https://api.dow.akaanksh.ga/test-codes?code=&lt;any-reponse-code&gt;</code></p>
+    <p>To test error codes, you can do this: <code>https://dow-api.herokuapp.com/test-codes?code=&lt;any-reponse-code&gt;</code></p>
     <h4>API</h4>
     <p>API is currently open to anyone and you don't need an API key.<br>
       STEPS:<br>
-      1. Just perform a GET request to <code>https://api.dow.akaanksh.ga/?site=&lt;site-name-entered-by-user&gt;</code><br>
+      1. Just perform a GET request to <code>https://dow-api.herokuapp.com/?site=&lt;site-name-entered-by-user&gt;</code><br>
       2. The Server will return JSON like this: (Ex: https://www.google.com)<br>
     <pre><code>{
   "status": "Up",
@@ -71,7 +71,7 @@
           document.getElementById("fix").innerText = "Possible Fix: "+ responses.possibleFix;
         }
       };
-      xmlhttp.open("GET", "https://api.dow.akaanksh.ga/?site="+s, true);
+      xmlhttp.open("GET", "https://dow-api.herokuapp.com/?site="+s, true);
       xmlhttp.send();
     }
   </script>    
