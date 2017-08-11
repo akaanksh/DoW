@@ -1,5 +1,6 @@
 # Down or What?
-Part of [akaanksh/apad][apad-repo].
+Part of [akaanksh/apad][apad-repo]<br>
+Made with PHP
 
 ## Purpose
 Gets the HTTP response code of any site along with information about the code, and a suggested solution (if any)
