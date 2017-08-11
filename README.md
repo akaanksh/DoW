@@ -10,7 +10,9 @@ Visit the site [here][dow-site]
 Down or What? does have an API at [akaanksh/DoW-API][dow-api] so you can read more about it there
 
 ## License
-MIT
+GNU GENERAL PUBLIC LICENSE<br>
+Why?<br>
+To gain recognition. Will change to MIT over time.
 
 Made with :heart: and :headphones: by akaanksh
 
