@@ -1,0 +1,648 @@
+@import "https://use.typekit.net/kky2abx.css" // Import Fonts Here
+
+$serif = "Sofia-Pro" // Set Serif Font
+$mono = "inconsolata" // Set Mono Font
+$sans = "Sofia-Pro" // Set Sans Serif Font
+
+$main = #265976 // Set Main Color
+$secondary = #15ace3
+$tertiary = white
+
+$textColor = black
+$backgroundColor = #fafafa // Set Background Color for <body>
+$selectionTextColor = white
+$selectionBackgroundColor = $main
+
+$bannerTextColor = white
+$bannerBackgroundColor = $main
+$bannerHeight = 80vh
+
+$h1FontWeight = 800
+$h2FontWeight = 700
+$h3FontWeight = 600
+$h4FontWeight = 500
+$h5FontWeight = 500
+$h6FontWeight = 500
+$pFontWeight = 300
+$bodyFontWeight = $pFontWeight
+
+$linkFontFamily = $sans
+$linkMainColor = $main
+$linkHoverColor = $secondary
+
+$headerLinkColor = $secondary
+$headerBackgroundColor = $main
+$headerTextColor = white
+$headerLinkHoverColor = $tertiary
+$footerBackgroundColor = #eaeaea
+$footerTextColor = $textColor
+
+$normalButtonTextColor = white
+$normalButtonHoverTextColor = white
+$normalButtonBackgroundColor = $main
+$normalButtonBorderColor = $main
+$outlineButtonTextColor = $textColor
+$outlineButtonBorderColor = $main
+$outlineButtonHoverTextColor = white
+$outlineButtonHoverBackgroundColor = $main
+$invertedButtonBorderColor = $secondary
+$invertedButtonTextColor = $secondary
+$invertedButtonHoverTextColor = $tertiary
+$invertedButtonHoverBackgroundColor = $secondary
+$buttonFontFamily = $sans
+
+$inputFontFamily = $sans
+$inputBackground = white
+$inputBorder = #eaeaea
+$inputHoverBorder = $main
+$inputActiveBorder = $secondary
+
+$tableBorder = grey
+
+$preBackgroundColor = #eaeaea
+
+$loaderBackgroundColor = rgba(0, 0, 0, .3)
+$loaderSpinnerColor = $main
+$fullPageLoaderBackgroundColor = #fafafa
+$fullPageLoaderSpinnerBackgroundColor = $loaderBackgroundColor
+$fullPageLoaderSpinnerColor = $loaderSpinnerColor
+$fullPageLoaderSize = 100px
+$inlineLoaderBackgroundColor = rgba(0, 0, 0, .3)
+$inlineLoaderSpinnerColor = $main
+$outlineButtonInlineLoaderBackgroundColor = rgba(0, 0, 0, .3)
+$outlineButtonInlineLoaderSpinnerColor = $main
+$buttonInlineLoaderBackgroundColor = rgba(255, 255, 255, .5)
+$buttonInlineLoaderSpinnerColor = rgb(255, 255, 255)
+$hoverOutlineButtonInlineLoaderBackgroundColor = $buttonInlineLoaderBackgroundColor
+$hoverOutlineButtonInlineLoaderSpinnerColor = $buttonInlineLoaderSpinnerColor
+$hoverButtonInlineLoaderBackgroundColor = $buttonInlineLoaderBackgroundColor
+$hoverButtonInlineLoaderBackgroundColor = $buttonInlineLoaderSpinnerColor
+$invertedButtonInlineLoaderBackgroundColor = $loaderBackgroundColor
+$invertedButtonInlineLoaderSpinnerColor = $secondary
+
+*
+    padding 0
+    margin 0
+    
+body
+    background-color $backgroundColor
+    font-family $sans
+    font-size 1rem
+    color $textColor
+    font-weight 300
+    box-sizing border-box
+
+::selection
+    color $selectionTextColor
+    background-color $selectionBackgroundColor
+    
+::moz-selection
+    color $selectionTextColor
+    background-color $selectionBackgroundColor
+    
+h1, .h1
+    font-family $sans
+    font-weight $h1FontWeight
+    padding-top 12.8px
+    font-size 3rem
+    
+h2, .h2
+    font-family $sans
+    font-weight $h2FontWeight
+    padding-top 12.8px
+    font-size 2.5rem
+
+h3, .h3
+    font-family $sans
+    font-weight $h3FontWeight
+    padding-top 12.8px
+    font-size 2rem
+    
+h4, .h4
+    font-family $sans
+    font-weight $h4FontWeight
+    padding-top .75rem
+    font-size 1.5rem
+    
+h5, .h5
+    font-family $sans
+    font-weight $h5FontWeight
+    padding-top .5rem
+    font-size 1.25rem
+    
+h6, .h6
+    font-family $sans
+    font-weight $h6FontWeight
+    padding-top .8rem
+    font-size 1rem
+    
+p, .p
+    font-family $sans
+    font-weight $pFontWeight
+    padding-top .8rem
+    font-size 1rem
+    
+ul, ol
+    margin-left 3rem
+    padding-top .8rem
+    
+a
+    color $linkMainColor
+    font-family $linkFontFamily
+    transition 300ms color ease-in-out
+    &:hover
+        color $linkHoverColor
+        
+button
+    font-family $buttonFontFamily
+    font-size 1rem
+    padding 7px 30px
+    border 1px solid $normalButtonBorderColor
+    background-color $normalButtonBackgroundColor
+    color $normalButtonTextColor
+    cursor pointer
+    border-radius 5px
+    margin-top .8rem
+    transition 200ms ease-in-out transform
+    &:disabled
+        cursor not-allowed !important
+        &:hover
+            transform none
+            color $normalButtonTextColor
+    &:hover
+        transform scale(1.05)
+        color $normalButtonHoverTextColor
+    &:active
+        transform scale(.98)
+        
+button.outline
+    padding 5px 20px
+    border 1px solid $outlineButtonBorderColor
+    background-color transparent
+    color $outlineButtonTextColor
+    cursor pointer
+    border-radius 5px
+    margin-top 12.8px
+    transition 200ms ease-in-out transform
+    &:disabled
+        cursor not-allowed !important
+        &:hover
+            transform none
+            color $outlineButtonTextColor
+            background-color transparent
+    &:hover
+        background-color $outlineButtonHoverBackgroundColor
+        color $outlineButtonHoverTextColor
+        transform scale(1.05)
+    &:active
+        transform scale(.98)
+        
+button.outline:hover.inline-loader:before, button.inverted:hover.inline-loader:before
+    border 3px solid $hoverOutlineButtonInlineLoaderBackgroundColor
+    border-top 3px solid $hoverOutlineButtonInlineLoaderSpinnerColor
+    
+button.inverted
+    padding 5px 20px
+    border 1px solid $invertedButtonBorderColor
+    background-color transparent
+    color $invertedButtonTextColor
+    cursor pointer
+    border-radius 5px
+    margin-top 12.8px
+    transition 200ms ease-in-out transform
+    &:disabled
+        cursor not-allowed !important
+        &:hover
+            transform none
+            color $invertedButtonTextColor
+            background-color transparent
+    &:hover
+        background-color $invertedButtonHoverBackgroundColor
+        color $invertedButtonHoverTextColor
+        transform scale(1.05)
+    &:active
+        transform scale(.98)
+
+.grid
+    display flex
+    .col, [class^='col-'], [class*=" col-"]
+        margin-left 4%
+    :first-child
+        margin-left 0
+    .col, .col-1
+        flex 1
+    .col-2
+        flex 2
+    .col-3
+        flex 3
+    .col-4
+        flex 4
+    .col-5
+        flex 5
+    .col-6
+        flex 6
+    .col-7
+        flex 7
+    .col-8
+        flex 8
+    .col-9
+        flex 9
+    .col-10
+        flex 10
+    .col-11
+        flex 11
+    .col-12
+        flex 12
+        
+@media screen and (max-width: 750px)
+    .grid
+        display block
+    .col, [class^='col-'], [class*=" col-"]
+        margin-left 0 !important
+        
+input, textarea
+    font-family $inputFontFamily
+    width 100%
+    padding 7px 10px
+    margin-top .8rem
+    background $inputBackground
+    border-radius 5px
+    border 1px solid $inputBorder
+    font-size 1rem
+    transition all .2s ease-in-out
+    outline none
+    box-sizing border-box
+    &:hover
+        border 1px solid $inputHoverBorder
+    &:focus
+        border 1px solid $inputActiveBorder
+    &:read-only
+        cursor not-allowed
+        border 1px solid $inputBorder
+        
+textarea
+    height 120px
+    resize vertical
+    
+.sans
+    font-family $sans
+    
+.serif
+    font-family $serif
+
+.mono
+    font-family $mono
+
+pre, code
+    font-family $mono
+    background-color $preBackgroundColor
+    
+code
+    background-color $preBackgroundColor
+    border-radius 5px
+    padding 1px 5px
+    
+pre
+    background-color $preBackgroundColor
+    padding 10px 15px
+    border-radius 5px
+    margin-top .8rem
+    overflow auto
+    white-space pre
+    word-wrap normal
+    code
+        padding 0
+
+.token.atrule,
+.token.attr-value,
+.token.keyword
+	color #ac2ec5
+	
+
+.token.operator,
+.token.entity,
+.token.function,
+.token.url,
+.language-css .token.string,
+.style .token.string
+	color #d23232
+	
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted,
+.token.regex,
+.token.important,
+.token.variable,
+.global
+  color: #db9114
+
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted,
+.token.punctuation,
+.method
+  color #00A2CD
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata,
+.comment
+  color #989898
+
+.token.important,
+.token.bold
+	font-weight bold
+
+.token.italic
+	font-style italic
+
+.namespace
+	opacity .7
+    
+.full-width
+    width 100%
+
+.no-padding
+    padding 0 !important
+    
+.no-margin
+    margin 0 !important
+    
+table
+    border-collapse collapse
+    width 100%
+    margin-top .8rem
+    td, th, thead, tbody
+        border 1px solid $tableBorder
+        text-align left
+        padding 8px
+
+.loader
+    border 3px solid $loaderBackgroundColor
+    border-top 3px solid $loaderSpinnerColor
+    border-radius 100%
+    width 40px
+    height 40px
+    animation spin 1s linear infinite
+    
+.full-page
+    position absolute
+    z-index 9999
+    display flex
+    align-items center
+    justify-content center
+    width 100%
+    height 100%
+    background $fullPageLoaderBackgroundColor
+    div
+        .loader
+            border 3px solid $fullPageLoaderSpinnerBackgroundColor
+            border-top 3px solid $fullPageLoaderSpinnerColor
+            border-radius 100%
+            width $fullPageLoaderSize
+            height $fullPageLoaderSize
+            animation spin 1s linear infinite
+            text-align center
+            flex-flow row wrap
+            max-width 100%
+            margin 0 auto
+        h1, h2, h3, h4, h5, h6, p
+            padding 0
+            max-width 560px
+            padding 0 2rem
+            margin 10px auto 0 auto
+            text-align center
+    
+.inline-loader
+    display inline-block
+    
+.inline-loader:before
+    content ''
+    border 3px solid $inlineLoaderBackgroundColor
+    border-top 3px solid $inlineLoaderSpinnerColor
+    margin-right 8px
+    border-radius 100%
+    width 1rem
+    height 1rem
+    animation spin 1s linear infinite
+    display inline-block
+    vertical-align text-bottom
+
+button.outline.inline-loader:before
+    border 3px solid $outlineButtonInlineLoaderBackgroundColor
+    border-top 3px solid $outlineButtonInlineLoaderSpinnerColor
+    
+button.inverted.inline-loader:before
+    border 3px solid $invertedButtonInlineLoaderBackgroundColor
+    border-top 3px solid $invertedButtonInlineLoaderSpinnerColor
+    
+button.inline-loader:before
+    border 3px solid $buttonInlineLoaderBackgroundColor
+    border-top 3px solid $buttonInlineLoaderSpinnerColor
+    &:hover
+        border 3px solid $hoverButtonInlineLoaderBackgroundColor
+        border-top 3px solid $hoverHuttonInlineLoaderSpinnerColor
+    
+h1.inline-loader:before
+    width 3rem
+    height 3rem
+    
+h2.inline-loader:before
+    width 2.5rem
+    height 2.5rem
+    
+h3.inline-loader:before
+    width 2rem
+    height 2rem
+    
+h4.inline-loader:before
+    width 1.5rem
+    height 1.5rem
+    
+h5.inline-loader:before
+    width 1.25rem
+    height 1.25rem
+    
+h6.inline-loader:before
+    width 1rem
+    height 1rem
+  
+p.inline-loader:before
+    width 1rem
+    height 1rem
+    
+body > .inline-loader:before
+    width 1rem
+    height 1rem
+      
+@keyframes spin
+    0%
+        transform rotate(0deg)
+    100%
+        transform rotate(360deg)
+        
+.display-none
+    display none
+    
+.alert
+    width 100%
+    padding 10px 0 10px 8px
+    margin-top 8px
+    display flex
+    border-radius 5px
+    color $textColor
+    a
+        color $textColor
+    &.success
+        background-color #9acd32a1
+        border-left 5px solid green
+        .action
+            text-align right
+            padding-right 15px
+            flex 3
+        .message
+            flex 9
+        a:hover
+            color green
+    &.info
+        background-color paleturquoise
+        border-left 5px solid deepskyblue
+        .action
+            text-align right
+            padding-right 15px
+            flex 3
+        .message
+            flex 9
+        a:hover
+            color deepskyblue
+    &.warning
+        background-color bisque
+        border-left 5px solid coral
+        .action
+            text-align right
+            padding-right 15px
+            flex 3
+        .message
+            flex 9
+        a:hover
+            color coral
+    &.danger, &.fail
+        background-color pink
+        border-left 5px solid red
+        .action
+            text-align right
+            padding-right 15px
+            flex 3
+        .message
+            flex 9
+        a:hover
+            color red
+            
+.banner
+    width 100%
+    height $bannerHeight
+    background $bannerBackgroundColor
+    color $bannerTextColor
+    display flex
+    flex-flow row wrap
+    align-items center
+    box-sizing border-box
+    .left, .right, .center
+        width 100%
+        max-width 800px
+        margin 0 auto
+        padding 0 2rem
+        line-height 1
+    .left
+        text-align left
+    .right
+        text-align right
+    .center
+        text-align center
+            
+
+header
+    background-color $headerBackgroundColor
+    color $headerTextColor
+    padding 10px 15px 13px
+    display flex
+    width 100%
+    box-sizing border-box
+    top 0
+    &.fixed
+        position fixed
+    .logo
+        flex 1
+        color white
+        font-family $sans
+    .links
+        flex 3
+        color white
+        font-family $sans
+        display flex
+        align-items center
+        justify-content flex-end
+        ul
+            padding 0
+            display flex
+            list-style-type none
+            justify-content flex-end
+            height auto
+            align-items center
+            li
+                margin-left 10px
+                flex-flow row nowrap
+                &:last-child
+                    margin-right 15px
+                a
+                    color $headerLinkColor
+                    &:hover
+                        color $headerLinkHoverColor
+                        
+.container
+    max-width 860px
+    margin 2rem auto
+    padding 0 2rem
+
+footer
+    background-color $footerBackgroundColor
+    padding 10px 15px 13px
+    display flex
+    color $footerTextColor
+    .copy
+        flex 1
+        font-family $sans
+    .social
+        flex 3
+        font-family $sans
+        ul
+            padding 0
+            display flex
+            list-style-type none
+            justify-content flex-end
+            li
+                margin-left 10px
+                flex-flow row nowrap
+                &:last-child
+                    margin-right 15px
+            a
+                color $linkMainColor
+                &:hover
+                    color $linkHoverColor
+
+@media (max-width: 975px)
+    footer
+        .social
+            ul
+                display block
+                text-align right
+                li:last-child
+                    margin 0
