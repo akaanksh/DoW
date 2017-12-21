@@ -1,59 +1,65 @@
 <html>
   <head>
-    <link rel="stylesheet" href="https://unpkg.com/wingcss"/>
+    <link rel="stylesheet" href="css/quick.css"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Down or What? (DoW) - Demo</title>
   </head>
-  <body class="body container">
-    <h2>
-      <center>
-      Down or What? (DoW) - Demo
-      <center>
-    </h2>
-    <br>
-    <div class="row">
-      <input class="col-8" id="siteEntered" type="text" placeholder="http:// or https://">
-      <button class="col-4" onClick="submitSite()">Get Site Response Code</button><br>
-    </div>
-    <span id="site">Site: </span><br>
-    <span id="status">Status: </span><br>
-    <span id="rCode">Response Code: </span><br>
-    <span id="abtCode">What the Code Means: </span><br>
-    <span id="fix">Fix: </span><br><br><br>
-    <h4>About</h4>
-    <p>Used to demonstrate how DoW (not the final name) works. Enter any URL into the textbox and see the Status, Response Code, What the Code Means and a Possible Fix (if any).</p>
-    <h4>Testing</h4>
+  <body>
+      <header>
+        <div class="logo no-padding">Down or What?</div>
+        <div class="links">
+          <ul>
+            <li><a href="https://github.com/akaanksh/dow-api">Project on GitHub</a></li>
+          </ul>
+        </div>
+      </header>
+    <div class="container">
+      <h1>Down or What? Demo</h1>
+      <form onsubmit="submitSite();return false">
+        <div class="grid">
+            <div class="col-8">
+              <input type="url" id="siteEntered" placeholder="Enter URL with http:// or https://">
+            </div>
+            <div class="col-4">
+              <button>Get Response Code</button>
+            </div>
+        </div>
+      </form>
+    <p id="site">Site: </p>
+    <p id="status">Status: </p>
+    <p id="rCode">Response Code: </p>
+    <p id="abtCode">What the Code Means: </p>
+    <p id="fix">Fix: </span><br><br>
+    <h3>About</h3>
+    <p>Used to demonstrate how DoW (not the final name) works. Enter any URL into the textbox and see the status, response code, what the code means and a possible fix, if any.</p>
+    <h3>Testing</h3>
     <p>To test error codes, you can do this: <pre><code>https://dow-api.herokuapp.com/test-codes?code=&lt;any-reponse-code&gt;</code></pre></p>
-    <h4>API</h4>
-    <p>API is currently open to anyone and you don't need an API key.<br>
-      STEPS:<br>
-      1. Just perform a POST or GET request to <pre><code>https://dow-api.herokuapp.com/?site=&lt;site-name-entered-by-user&gt;</code></pre><br>
-      2. The Server will return JSON like this: (Ex: https://www.google.com)<br>
-    <pre><code>{
-  "status": "Up",
-  "code": "200", 
-  "codeMeaning": "OK", 
-  "inDepth": "Everything is operational", 
-  "possibleFix": "None" 
-}</code></pre>
-    <br>
-    3. All you have to do is Parse the JSON.<br>
-    If you are interested, do Ctrl+U to check out this page's source code.<br>
-    </p>
-    <br>
-    <p>Made by Akaanksh. This is not the final design of the page. Much more to come.<br>
-      Made with <a href="http://usewing.ml/?ref="dow"">Wing</a>. Check this out on <a href="https://github.com/akaanksh/DoW">GitHub</a><br>
-      P.S. All of this (so far) was made in 3 hours!
-    </p>
-    <style>
-      * {
-      margin: 0;
-      }
-      .body {
-      max-width: 860px;
-      margin: 2rem auto;
-      }
-    </style>
+    <h3>API</h3>
+    <p>API is currently open to anyone and you don't need an API key.</p>
+      <h4>Steps:</h4>
+      <p>1. Just perform a POST or GET request to:</p><pre><code>https://dow-api.herokuapp.com/?site=&lt;site-name-entered-by-user&gt;</code></pre>
+      <p>2. The Server will return JSON like this: (Ex: https://www.google.com)</p>
+<pre><code><span class="token punctuation">{</span>
+  <span class="token property">"status"</span><span class="token operator">:</span> <span class="token string">"Up"</span><span class="token punctuation">,</span>
+  <span class="token property">"code"</span><span class="token operator">:</span> <span class="token string">"200"</span><span class="token punctuation">,</span> 
+  <span class="token property">"codeMeaning"</span><span class="token operator">:</span> <span class="token string">"OK"</span><span class="token punctuation">,</span> 
+  <span class="token property">"inDepth"</span><span class="token operator">:</span> <span class="token string">"Everything is operational"</span><span class="token punctuation">,</span> 
+  <span class="token property">"possibleFix"</span><span class="token operator">:</span> <span class="token string">"None"</span> 
+<span class="token punctuation">}</span></code></pre>
+    <p>3. Next, parse the JSON. This page uses the function <code><span class="token function">submitSite</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code> to get and Parse JSON. Check it out.</p>
+
+  </div>
+    <footer>
+      <div class="copy">Made by <a href="https://akaanksh.ga">Akaanksh</a></div>
+      <div class="social">
+        <ul>
+          <li>Made with <a href="https://knsh.ga/tild">Tild</a> in 3 hours</li>
+          <li><a href="https://github.com/akaanksh/dow-api">Project on GitHub</a></li>
+          <li><a href="https://github.com/akaanksh/">My GitHub</a></li>
+          <li><a href="https://twitter.com/akaankshr4j">My Twitter</a></li>
+        </ul>
+      </div>
+    </footer>
   </body>
   <script>
     function submitSite(){
