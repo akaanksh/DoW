@@ -43,10 +43,16 @@
       <p>2. The Server will return JSON like this: (Ex: https://www.google.com)</p>
 <pre><code><span class="token punctuation">{</span>
   <span class="token property">"status"</span><span class="token operator">:</span> <span class="token string">"Up"</span><span class="token punctuation">,</span>
-  <span class="token property">"code"</span><span class="token operator">:</span> <span class="token string">"200"</span><span class="token punctuation">,</span> 
-  <span class="token property">"codeMeaning"</span><span class="token operator">:</span> <span class="token string">"OK"</span><span class="token punctuation">,</span> 
-  <span class="token property">"inDepth"</span><span class="token operator">:</span> <span class="token string">"Everything is operational"</span><span class="token punctuation">,</span> 
-  <span class="token property">"possibleFix"</span><span class="token operator">:</span> <span class="token string">"None"</span> 
+  <span class="token property">"latency"</span><span class="token operator">:</span> <span class="token number">4668.242775</span><span class="token punctuation">,</span>
+  <span class="token property">"code"</span><span class="token operator">:</span> <span class="token number">200</span><span class="token punctuation">,</span>
+  <span class="token property">"size"</span><span class="token operator">:</span> <span class="token number">46680</span><span class="token punctuation">,</span>
+  <span class="token property">"speed"</span><span class="token operator">:</span> <span class="token number">0.01</span><span class="token punctuation">,</span>
+  <span class="token property">"lookup"</span><span class="token operator">:</span> <span class="token number">16.587</span><span class="token punctuation">,</span>
+  <span class="token property">"establish"</span><span class="token operator">:</span> <span class="token number">20.562</span><span class="token punctuation">,</span>
+  <span class="token property">"content"</span><span class="token operator">:</span> <span class="token string">"text\/html; charset=ISO-8859-1"</span><span class="token punctuation">,</span>
+  <span class="token property">"ssl"</span><span class="token operator">:</span> <span class="token string">"Google Internet Authority G2"</span><span class="token punctuation">,</span>
+  <span class="token property">"sslexp"</span><span class="token operator">:</span> <span class="token string">"May 8 10:39:00 2018 GMT"</span><span class="token punctuation">,</span>
+  <span class="token property">"checkTime"</span><span class="token operator">:</span> <span class="token string">"2018-03-01 17:26:04"</span>
 <span class="token punctuation">}</span></code></pre>
     <p>3. Next, parse the JSON. This page uses the function <code><span class="token function">submitSite</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code> to get and Parse JSON. Check it out.</p>
 
