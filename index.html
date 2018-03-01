@@ -27,9 +27,11 @@
       </form>
     <p id="site">Site: </p>
     <p id="status">Status: </p>
-    <p id="rCode">Response Code: </p>
-    <p id="abtCode">What the Code Means: </p>
-    <p id="fix">Fix: </span><br><br>
+    <p id="code">Response Code: </p>
+    <p id="latency">Latency: </p>
+    <p id="size">Data Downloaded: </p>
+    <p id="ssl">SSL Authority: </p>
+    <p id="sslExp">SSL Expiry: </span><br><br>
     <h3>About</h3>
     <p>Used to demonstrate how DoW (not the final name) works. Enter any URL into the textbox and see the status, response code, what the code means and a possible fix, if any.</p>
     <h3>Testing</h3>
@@ -65,21 +67,29 @@
     function submitSite(){
       var siteEntered = document.getElementById("siteEntered");
       var s = siteEntered.value;
+
+      document.getElementById("site").innerText = "Site: ";
+      document.getElementById("status").innerText = "Status: ";
+      document.getElementById("latency").innerText = "Latency: ";
+      document.getElementById("code").innerText = "Response Code: ";
+      document.getElementById("size").innerText = "Data downloaded: ";
+      document.getElementById("ssl").innerText = "SSL Authority: ";
+      document.getElementById("sslExp").innerText = "SSL Expiry: ";
       
-      var site = document.getElementById("site");
-      site.innerText = "Site: "+s;
-    
       var xmlhttp = new XMLHttpRequest();
       xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
           var responses = JSON.parse(this.responseText);
+          document.getElementById("site").innerText = "Site: " +s;
           document.getElementById("status").innerText = "Status: "+ responses.status;
-          document.getElementById("rCode").innerText = 'Response Code: '+ responses.code + ' - ' + responses.codeMeaning;
-          document.getElementById("abtCode").innerText = "What the Code Means: "+ responses.inDepth;
-          document.getElementById("fix").innerText = "Possible Fix: "+ responses.possibleFix;
+          document.getElementById("latency").innerText = "Latency: "+ responses.latency + " ms @ 0.01mbps";
+          document.getElementById("code").innerText = "Response Code: "+ responses.code;
+          document.getElementById("size").innerText = "Data downloaded: "+ responses.size + " bytes";
+          document.getElementById("ssl").innerText = "SSL Authority: "+ responses.ssl;
+          document.getElementById("sslExp").innerText = "SSL Expiry: "+ responses.sslexp + " GMT";
         }
       };
-      xmlhttp.open("GET", "https://dow-api.herokuapp.com/?site="+s, true);
+      xmlhttp.open("GET", "https://dow-api.herokuapp.com/?url="+s, true);
       xmlhttp.send();
     }
   </script>    
