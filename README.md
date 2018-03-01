@@ -1,9 +1,21 @@
 # Down or What?
-Part of [akaanksh/apad][apad-repo]<br>
-Made with PHP
-
 ## Purpose
-Gets the HTTP response code of any site along with information about the code, and a suggested solution (if any)
+Retruns this on URL check: (https://google.com)
+```json
+{
+  "status": "Up",
+  "latency": 4668.242775,
+  "code": 200,
+  "size": 46680,
+  "speed": 0.01,
+  "lookup": 16.587,
+  "establish": 20.562,
+  "content": "text\/html; charset=ISO-8859-1",
+  "ssl": "Google Internet Authority G2",
+  "sslexp": "May 8 10:39:00 2018 GMT",
+  "checkTime": "2018-03-01 17:26:04"
+}
+```
 
 Visit the site [here][dow-site]
 
@@ -15,6 +27,5 @@ MIT LICENSE<br>
 
 Made with :heart: and :headphones: by akaanksh
 
-[apad-repo]: https://github.com/akaanksh/apad
 [dow-site]: https://dow.akaanksh.ga/
 [dow-api]: https://github.com/akaanksh/dow-api
