@@ -1,6 +1,6 @@
 # Down or What?
 ## Purpose
-Retruns this on URL check: (https://google.com)
+Returns this on URL check: (https://google.com)
 ```json
 {
   "status": "Up",
