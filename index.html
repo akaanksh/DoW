@@ -86,7 +86,7 @@
           document.getElementById("code").innerText = "Response Code: "+ responses.code;
           document.getElementById("size").innerText = "Data downloaded: "+ responses.size + " bytes";
           document.getElementById("ssl").innerText = "SSL Authority: "+ responses.ssl;
-          document.getElementById("sslExp").innerText = "SSL Expiry: "+ responses.sslexp + " GMT";
+          document.getElementById("sslExp").innerText = "SSL Expiry: "+ responses.sslexp;
         }
       };
       xmlhttp.open("GET", "https://dow-api.herokuapp.com/?url="+s, true);
