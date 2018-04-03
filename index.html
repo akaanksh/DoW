@@ -1,8 +1,39 @@
+<!DOCTYPE html>
 <html>
   <head>
     <link rel="stylesheet" href="css/quick.css"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Down or What? (DoW) - Demo</title>
+    <script>
+      function submitSite() {
+        var siteEntered = document.getElementById("siteEntered");
+        var s = siteEntered.value;
+  
+        document.getElementById("site").innerText = "Site: ";
+        document.getElementById("status").innerText = "Status: ";
+        document.getElementById("latency").innerText = "Latency: ";
+        document.getElementById("code").innerText = "Response Code: ";
+        document.getElementById("size").innerText = "Data Downloaded: ";
+        document.getElementById("ssl").innerText = "SSL Authority: ";
+        document.getElementById("sslExp").innerText = "SSL Expiry: ";
+        
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function() {
+          if (this.readyState == 4 && this.status == 200) {
+            var responses = JSON.parse(this.responseText);
+            document.getElementById("site").innerText = "Site: " +s;
+            document.getElementById("status").innerText = "Status: "+ responses.status;
+            document.getElementById("latency").innerText = "Latency: "+ responses.latency + " ms @ " + Math.round(responses.speed * 10000) / 10000 + "mbps";
+            document.getElementById("code").innerText = "Response Code: "+ responses.code;
+            document.getElementById("size").innerText = "Data Downloaded: "+ responses.size + " bytes";
+            document.getElementById("ssl").innerText = "SSL Authority: "+ responses.ssl;
+            document.getElementById("sslExp").innerText = "SSL Expiry: "+ responses.sslexp;
+          }
+        };
+        xmlhttp.open("GET", "https://dow-api.herokuapp.com/?url="+s, true);
+        xmlhttp.send();
+      }
+    </script>
   </head>
   <body>
       <header>
@@ -31,29 +62,29 @@
     <p id="latency">Latency: </p>
     <p id="size">Data Downloaded: </p>
     <p id="ssl">SSL Authority: </p>
-    <p id="sslExp">SSL Expiry: </span><br><br>
+    <p id="sslExp">SSL Expiry: </p><br><br>
     <h3>About</h3>
     <p>Used to demonstrate how DoW (not the final name) works. Enter any URL into the textbox and see the status, response code, what the code means and a possible fix, if any.</p>
     <h3>Testing</h3>
-    <p>To test error codes, you can do this: <pre><code>https://dow-api.herokuapp.com/test-codes?code=&lt;any-reponse-code&gt;</code></pre></p>
+    <p>To test error codes, you can do this: </p><pre><code>https://dow-api.herokuapp.com/test-codes?code=&lt;any-reponse-code&gt;</code></pre>
     <h3>API</h3>
     <p>API is currently open to anyone and you don't need an API key.</p>
       <h4>Steps:</h4>
       <p>1. Just perform a POST or GET request to:</p><pre><code>https://dow-api.herokuapp.com/?url=&lt;site-name-entered-by-user&gt;</code></pre>
-      <p>2. The Server will return JSON like this: (Ex: https://www.google.com)</p>
-<pre><code><span class="token punctuation">{</span>
-  <span class="token property">"status"</span><span class="token operator">:</span> <span class="token string">"Up"</span><span class="token punctuation">,</span>
-  <span class="token property">"latency"</span><span class="token operator">:</span> <span class="token number">4668.242775</span><span class="token punctuation">,</span>
-  <span class="token property">"code"</span><span class="token operator">:</span> <span class="token number">200</span><span class="token punctuation">,</span>
-  <span class="token property">"size"</span><span class="token operator">:</span> <span class="token number">46680</span><span class="token punctuation">,</span>
-  <span class="token property">"speed"</span><span class="token operator">:</span> <span class="token number">0.01</span><span class="token punctuation">,</span>
-  <span class="token property">"lookup"</span><span class="token operator">:</span> <span class="token number">16.587</span><span class="token punctuation">,</span>
-  <span class="token property">"establish"</span><span class="token operator">:</span> <span class="token number">20.562</span><span class="token punctuation">,</span>
-  <span class="token property">"content"</span><span class="token operator">:</span> <span class="token string">"text\/html; charset=ISO-8859-1"</span><span class="token punctuation">,</span>
-  <span class="token property">"ssl"</span><span class="token operator">:</span> <span class="token string">"Google Internet Authority G2"</span><span class="token punctuation">,</span>
-  <span class="token property">"sslexp"</span><span class="token operator">:</span> <span class="token string">"May 8 10:39:00 2018 GMT"</span><span class="token punctuation">,</span>
-  <span class="token property">"checkTime"</span><span class="token operator">:</span> <span class="token string">"2018-03-01 17:26:04"</span>
-<span class="token punctuation">}</span></code></pre>
+      <p>2. The Server will return JSON like this: (Ex: https://www.google.com). Speed is in mbps</p>
+<pre><code><pre><code><span class="token punctuation">{</span>
+    <span class="token property">"status"</span><span class="token operator">:</span><span class="token string">"Up"</span><span class="token punctuation">,</span>
+    <span class="token property">"latency"</span><span class="token operator">:</span><span class="token number">108.072</span><span class="token punctuation">,</span>
+    <span class="token property">"code"</span><span class="token operator">:</span><span class="token number">200</span><span class="token punctuation">,</span>
+    <span class="token property">"size"</span><span class="token operator">:</span><span class="token number">45803</span><span class="token punctuation">,</span>
+    <span class="token property">"speed"</span><span class="token operator">:</span><span class="token number">4.8629837036133</span><span class="token punctuation">,</span>
+    <span class="token property">"lookup"</span><span class="token operator">:</span><span class="token number">4.258</span><span class="token punctuation">,</span>
+    <span class="token property">"establish"</span><span class="token operator">:</span><span class="token number">5.209</span><span class="token punctuation">,</span>
+    <span class="token property">"content"</span><span class="token operator">:</span><span class="token string">"text\/html; charset=ISO-8859-1"</span><span class="token punctuation">,</span>
+    <span class="token property">"ssl"</span><span class="token operator">:</span><span class="token string">"Google Internet Authority G2"</span><span class="token punctuation">,</span>
+    <span class="token property">"sslexp"</span><span class="token operator">:</span><span class="token string">"Jun  5 18:16:00 2018 GMT"</span><span class="token punctuation">,</span>
+    <span class="token property">"checkTime"</span><span class="token operator">:</span><span class="token string">"2018-04-03 03:14:44"</span>
+<span class="token punctuation">}</span></code></pre></code></pre>
     <p>3. Next, parse the JSON. This page uses the function <code><span class="token function">submitSite</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code> to get and Parse JSON. Check it out.</p>
 
   </div>
@@ -69,34 +100,4 @@
       </div>
     </footer>
   </body>
-  <script>
-    function submitSite(){
-      var siteEntered = document.getElementById("siteEntered");
-      var s = siteEntered.value;
-
-      document.getElementById("site").innerText = "Site: ";
-      document.getElementById("status").innerText = "Status: ";
-      document.getElementById("latency").innerText = "Latency: ";
-      document.getElementById("code").innerText = "Response Code: ";
-      document.getElementById("size").innerText = "Data downloaded: ";
-      document.getElementById("ssl").innerText = "SSL Authority: ";
-      document.getElementById("sslExp").innerText = "SSL Expiry: ";
-      
-      var xmlhttp = new XMLHttpRequest();
-      xmlhttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-          var responses = JSON.parse(this.responseText);
-          document.getElementById("site").innerText = "Site: " +s;
-          document.getElementById("status").innerText = "Status: "+ responses.status;
-          document.getElementById("latency").innerText = "Latency: "+ responses.latency + " ms @ " Math.round(responses.speed * 100) / 100 + "mbps";
-          document.getElementById("code").innerText = "Response Code: "+ responses.code;
-          document.getElementById("size").innerText = "Data downloaded: "+ responses.size + " bytes";
-          document.getElementById("ssl").innerText = "SSL Authority: "+ responses.ssl;
-          document.getElementById("sslExp").innerText = "SSL Expiry: "+ responses.sslexp;
-        }
-      };
-      xmlhttp.open("GET", "https://dow-api.herokuapp.com/?url="+s, true);
-      xmlhttp.send();
-    }
-  </script>    
 </html>
